@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Errs.Benchmarks/Errs.Benchmarks.csproj" />
+  <Project Path="Errs.NativeTests/Errs.NativeTests.csproj" />
+  <Project Path="Errs.Tests/Errs.Tests.csproj" />
+  <Project Path="Errs/Errs.csproj" />
+</Solution>

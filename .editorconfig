@@ -1,0 +1,5 @@
+root = true
+
+# Use actual, expected order for assertions.
+[*.cs]
+dotnet_diagnostic.xUnit2000.severity = none

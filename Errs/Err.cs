@@ -213,7 +213,23 @@ public sealed class Err : Exception
 
         foreach (var handler in _asyncErrHandlers)
         {
-            _ = Task.Run(() => handler(err, tm));
+            _ = Task.Run(async () =>
+            {
+                try
+                {
+                    await handler(err, tm);
+                }
+#if DEBUG
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Async handler failed: {ex}");
+                }
+#else
+                catch
+                {
+                }
+#endif
+            });
         }
     }
 }

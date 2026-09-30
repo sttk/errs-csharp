@@ -13,7 +13,11 @@ dotnet new solution --name ${PROJECT}
 ## Make a project of a library
 dotnet new classlib --name ${PROJECT} --output ${PROJECT} --framework ${DOTNETVER}
 dotnet solution ${PROJECT}.slnx add ${PROJECT}/${PROJECT}.csproj
+
 awk '/<\/PropertyGroup>/{print "    <GenerateDocumentationFile>true</GenerateDocumentationFile>"}1' ${PROJECT}/${PROJECT}.csproj > .tmp
+mv .tmp ${PROJECT}/${PROJECT}.csproj
+
+awk '/<\/Project>/{print "  <PropertyGroup Condition=\"\047$(Configuration)\047 == \047Release\047\">\n    <PathMap>$(MSBuildProjectDirectory)=/</PathMap>\n  </PropertyGroup>\n"}1' ${PROJECT}/${PROJECT}.csproj > .tmp
 mv .tmp ${PROJECT}/${PROJECT}.csproj
 
 ## Make a project for unit tests

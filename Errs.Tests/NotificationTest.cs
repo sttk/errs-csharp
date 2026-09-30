@@ -1,5 +1,7 @@
 namespace Errs.Tests;
 
+#if DEBUG
+
 using Errs;
 using System.Threading.Tasks;
 
@@ -131,10 +133,12 @@ public class NotificationTest
 
         new Err(new FailToDoSomething("abc"));
         Assert.Equal(syncLogs.Count(), 1);
-        Assert.EndsWith(":NotificationTest.cs(132):FailToDoSomething { name = abc }", syncLogs[0]);
+        Assert.EndsWith(":NotificationTest.cs(134):FailToDoSomething { name = abc }", syncLogs[0]);
 
         Thread.Sleep(100);
         Assert.Equal(asyncLogs.Count(), 1);
-        Assert.EndsWith(":NotificationTest.cs(132):FailToDoSomething { name = abc }", asyncLogs[0]);
+        Assert.EndsWith(":NotificationTest.cs(134):FailToDoSomething { name = abc }", asyncLogs[0]);
     }
 }
+
+#endif

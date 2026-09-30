@@ -11,7 +11,7 @@ clean() {
 }
 
 compile() {
-  dotnet build
+  dotnet build "${PROJECT}/${PROJECT}.csproj"
 }
 
 format() {

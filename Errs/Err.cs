@@ -184,7 +184,7 @@ public sealed class Err : Exception
     /// handler lists. Before this is called, no <see cref="Err"/> is notified to the handlers.
     /// After this is called, no new handlers can be added, and <see cref="Err"/> is notified to
     /// the handlers.
-    /// NOTE: This feature is enabld via the command line argument:
+    /// NOTE: This feature is enabled via the command line argument:
     /// <c>--github.sttk.errs.notify=true</c>
     /// </summary>
     public static void FixHandlers()

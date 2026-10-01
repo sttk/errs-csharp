@@ -125,6 +125,10 @@ public sealed class Err : Exception
     internal static readonly List<AsyncErrHandler> _asyncErrHandlers = new();
 #else
     private static readonly bool _useNotification;
+    private static bool _isHandlersFixed = false;
+    private static readonly List<SyncErrHandler> _syncErrHandlers = new();
+    private static readonly List<AsyncErrHandler> _asyncErrHandlers = new();
+#endif
 
     static Err()
     {
@@ -139,11 +143,6 @@ public sealed class Err : Exception
         }
         _useNotification = b;
     }
-
-    private static bool _isHandlersFixed = false;
-    private static readonly List<SyncErrHandler> _syncErrHandlers = new();
-    private static readonly List<AsyncErrHandler> _asyncErrHandlers = new();
-#endif
 
     /// <summary>
     /// Adds an <see cref="SyncErrHandler"/> object which is executed synchronously just after an

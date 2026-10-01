@@ -21,7 +21,7 @@ public class Benchmarks
     }
 
     [Benchmark]
-    public void TestNewErrWithInnrException()
+    public void TestNewErrWithInnerException()
     {
         try
         {

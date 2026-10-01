@@ -16,7 +16,7 @@ public class NotificationTest
     }
 
     [Fact]
-    void should_and_sync_handlers_and_fix()
+    void should_add_sync_handlers_and_fix()
     {
         Reset();
 
@@ -52,7 +52,7 @@ public class NotificationTest
     }
 
     [Fact]
-    void should_and_async_handlers_and_fix()
+    void should_add_async_handlers_and_fix()
     {
         Reset();
 

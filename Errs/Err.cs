@@ -156,6 +156,8 @@ public sealed class Err : Exception
     /// </param>
     public static void AddSyncHandler(SyncErrHandler handler)
     {
+        ArgumentNullException.ThrowIfNull(handler);
+
         if (!_useNotification) return;
         if (_isHandlersFixed) return;
         _syncErrHandlers.Add(handler);
@@ -173,6 +175,8 @@ public sealed class Err : Exception
     /// </param>
     public static void AddAsyncHandler(AsyncErrHandler handler)
     {
+        ArgumentNullException.ThrowIfNull(handler);
+
         if (!_useNotification) return;
         if (_isHandlersFixed) return;
         _asyncErrHandlers.Add(handler);

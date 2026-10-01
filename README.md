@@ -48,7 +48,7 @@ In your project file, write this package as a dependency.
 You can also install this package with `dotnet` command, as follows.
 
 ```bash
-dotnet package add Errs --version 0.1.0
+dotnet add package Errs --version 0.1.0
 ```
 
 
@@ -68,7 +68,7 @@ public class SampleClass
     public void SampleMethod()
     {
         // ...
-        throw new Err(new IndexOutOfRange("array", i, 0, array.length));
+        throw new Err(new IndexOutOfRange("array", i, 0, array.Length));
     }
 }
 ```
@@ -84,7 +84,7 @@ An `Err` can also be instantiated with the underlying inner exception along with
         }
         catch (IOException e)
         {
-            throw new Err(new IndexOutOfRange("array", i, 0, array.length), e);
+            throw new Err(new IndexOutOfRange("array", i, 0, array.Length), e);
         }
     }
 ```
@@ -100,7 +100,7 @@ By using the pattern-matching switch expression, you can extract the error reaso
   }
   catch (Err e)
   {
-      switch (err.Reason)
+      switch (e.Reason)
       {
           case IndexOutOfRange reason:
               string nam = reason.Name;
@@ -135,7 +135,7 @@ public class Program
     {
         Err.AddSyncHandler((err, tm) =>
         {
-          Console.WriteLine(string.Format("%s - %s:%d",
+          Console.WriteLine(string.Format("{0} - {1}:{2}",
             err.Message, err.File, err.Line);
         });
 
@@ -169,7 +169,7 @@ public class Program
 Program.IndexOutOfRange { name = array, index = 11, min = 0, max = 10 } - Program.cs:27
 ```
 
-Error notifications will not occur until the `Err.FixErrHandlers` static method is called.
+Error notifications will not occur until the `Err.FixHandlers` static method is called.
 This static method locks the current set of error handlers, preventing further additions and enabling notification processing.
 
 

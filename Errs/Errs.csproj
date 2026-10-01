@@ -11,4 +11,8 @@
     <PathMap>$(MSBuildProjectDirectory)=/</PathMap>
   </PropertyGroup>
 
+  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+    <InternalsVisibleTo Include="Errs.Tests" />
+  </ItemGroup>
+
 </Project>

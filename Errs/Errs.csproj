@@ -7,6 +7,26 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <PackageVersion>0.1.0</PackageVersion>
+    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+    <PackageId>Errs</PackageId>
+    <Authors>Takayuki Sato</Authors>
+    <Description>A library for handling errors with reasons for C#</Description>
+    <Copyright>Copyright (C) 2026 Takayuki Sato</Copyright>
+    <PackageProjectUrl>https://github.com/sttk/errs-csharp</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/sttk/errs-csharp</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>error error-handling notification notify reason</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\" />
+    <None Include="../LICENSE" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <PathMap>$(MSBuildProjectDirectory)=/</PathMap>
   </PropertyGroup>

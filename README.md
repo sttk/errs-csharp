@@ -1,6 +1,7 @@
 # [Errs][repo-url] [![NuGet Repository][nuget-img]][nuget-url] [![GitHub.io][io-img]][io-url] [![CI Status][ci-img]][ci-url] [![MIT license][mit-img]][mit-url]
 
-A library for handling errors with reasons for C#
+A library for handling errors with reasons for C#.
+
 
 ## Overview
 

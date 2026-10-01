@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Errs     </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Errs     ">
+    
+    
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="stylesheet" href="styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="styles/docfx.css">
+      <link rel="stylesheet" href="styles/main.css">
+      <meta property="docfx:navrel" content="">
+      <meta property="docfx:tocrel" content="">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="errs-nuget-repository-githubio-ci-status-mit-license"><a href="https://github.com/sttk/errs-csharp">Errs</a> <a href="https://nuget.org/packages/Errs"><img src="https://img.shields.io/badge/NuGet-0.1.0-6600ff.svg" alt="NuGet Repository"></a> <a href="https://sttk.github.io/errs-csharp/api/Errs.html"><img src="https://img.shields.io/badge/github.io-docfx-4c69fd.svg" alt="GitHub.io"></a> <a href="https://github.com/sttk/errs-csharp/actions?query=branch%3Amain"><img src="https://github.com/sttk/errs-csharp/actions/workflows/csharp.yml/badge.svg?branch=main" alt="CI Status"></a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT license"></a></h1>
+
+<p>A library for handling errors with reasons for C#.</p>
+<h2 id="overview">Overview</h2>
+<p><code>errs</code> is an exception handling library for C# designed to focus on the &quot;Reason&quot; behind an error.</p>
+<h3 id="expressing-why-it-failed-via-the-type-system">Expressing &quot;Why It Failed&quot; via the Type System</h3>
+<p>Instead of scattering many small exception subclasses across your codebase, <code>errs</code> uses a single <code>Err</code> exception class that carries a “Reason” object whose type represents why the failure occurred.</p>
+<p>For error reasons, you can use anything from lightweight types like <code>string</code> to type-safe definitions using <code>record</code>s, all handled flexibly with the same API.
+By using a <code>record</code> in particular, you can not only express failure factors within the type system but also hold contextual information in its fields, propagating the context and relevant data at the time of the error as-is.
+Furthermore, since reasons can be determined in a type-safe manner using pattern-matching <code>switch</code> expressions, you can avoid fragile error handling that relies on string comparisons.</p>
+<h3 id="decentralized-error-definition-and-traceability">Decentralized Error Definition and Traceability</h3>
+<p><code>errs</code> encourages defining error reasons close to where they occur.
+This eliminates the need to share a massive, monolithic error message management across the entire application, enabling a highly maintainable design while keeping dependencies between classes clean.
+Type information is utilized to identify the reason, and the type identifiers required for this determination are resolved statically at compile time. This provides type-safe error handling with minimal runtime overhead.</p>
+<p>The core <code>Err</code> type of the library inherits <code>System.Exception</code>, allowing it to integrate naturally with standard C# exception handling.
+It can also retain lower-layer exceptions as causes, enabling you to manage the &quot;Reason&quot; of the upper layer and the &quot;InnerException&quot; of the lower layer separately.
+Additionally, it automatically records the file name and line number when an error is generated, making log output and failure analysis effortless.</p>
+<h3 id="powerful-error-instantiation-notification--monitoring-ecosystem">Powerful Error-Instantiation Notification &amp; Monitoring Ecosystem</h3>
+<p>Furthermore, <code>errs</code> features a mechanism to notify error generation events.
+By running with the command line argument <code>--github.sttk.errs.notify=true</code>, an automatic notification can be sent to registered handlers the exact moment an <code>Err</code> is created.
+It supports synchronous handlers and asynchronous handlers, and it accommodates registration within functions.
+This makes it easy to implement logging, monitoring, metrics collection, and integration with telemetry systems.</p>
+<p>While standard C# exceptions often focus primarily on annotating and propagating errors, <code>errs</code> emphasizes explicitly defining the reason for failure through types and reliably observing the exact moment it occurs.
+This library is ideal for scenarios where you want to tightly manage the semantics of errors within your application while seamlessly integrating with production monitoring and operational infrastructure.</p>
+<h2 id="install">Install</h2>
+<p>This package can be installed from <a href="https://nuget.org/packages/Errs">NuGet</a>.</p>
+<p>In your project file, write this package as a dependency.</p>
+<pre><code class="lang-xml">&lt;PackageReference Include=&quot;Errs&quot; Version=&quot;0.1.0&quot; /&gt;
+</code></pre>
+<p>You can also install this package with <code>dotnet</code> command, as follows.</p>
+<pre><code class="lang-bash">dotnet add package Errs --version 0.1.0
+</code></pre>
+<h2 id="usage">Usage</h2>
+<h3 id="locally-defined-reasons-and-instantiate-an-err-with-them">Locally Defined Reasons and Instantiate an Err with Them</h3>
+<p>An <code>Err</code> class can be instantiated with any arbitrary error reason. Typically, a record defined to indicate the cause or context of the error is used as the reason. This reason does not need to be declared in a centralized file of global errors; rather, it is preferable to define it close to where the error using it as a reason actually occurs.</p>
+<pre><code class="lang-c#">using Errs;
+
+public class SampleClass
+{
+    record IndexOutOfRange(String name, int index, int min, int max);
+
+    public void SampleMethod()
+    {
+        // ...
+        throw new Err(new IndexOutOfRange(&quot;array&quot;, i, 0, array.Length));
+    }
+}
+</code></pre>
+<p>An <code>Err</code> can also be instantiated with the underlying inner exception along with the reason.</p>
+<pre><code class="lang-c#">    public void SampleMethod()
+    {
+        try
+        {
+            // ...
+        }
+        catch (IOException e)
+        {
+            throw new Err(new IndexOutOfRange(&quot;array&quot;, i, 0, array.Length), e);
+        }
+    }
+</code></pre>
+<h3 id="type-safe-reason-identification">Type-Safe Reason Identification</h3>
+<p>By using the pattern-matching switch expression, you can extract the error reason as the specified type.</p>
+<pre><code class="lang-c#">  try
+  {
+      SampleMethod();
+  }
+  catch (Err e)
+  {
+      switch (e.Reason)
+      {
+          case IndexOutOfRange reason:
+              string nam = reason.Name;
+              int index = reason.Index;
+              int min = reason.Min;
+              int max = reason.Max;
+              ...
+              break;
+
+          default:
+              ...
+              break;
+      }
+  }
+</code></pre>
+<h3 id="error-handler-registration">Error Handler Registration</h3>
+<blockquote>
+<p>To enable this feature, you must specify the command line argument <code>--github.sttk.errs.notify=true</code> at program startup.</p>
+</blockquote>
+<p>This library optionally provides a feature to notify pre-registered error handlers when an <code>Err</code> is instantiated.
+Multiple error handlers can be registered, and you can choose to receive notifications either synchronously or asynchronously.</p>
+<p>To register handlers, you can use the following functions:</p>
+<pre><code class="lang-c#">using Errs;
+
+public class Program
+{
+    static Program()
+    {
+        Err.AddSyncHandler((err, tm) =&gt;
+        {
+          Console.WriteLine(string.Format(&quot;{0} - {1}:{2}&quot;,
+            err.Message, err.File, err.Line);
+        });
+
+        Err.AddAsyncHandler((err, tm) =&gt;
+        {
+          remoteLogger.Log(string.format(&quot;{0}:{1}:{2}:{3}&quot;,
+              tm.ToString(&quot;yyyy-MM-dd'T'HH:mm:sszzz&quot;), err.File, err.Line, err.ToString()));
+        });
+
+        Err.FixHandlers();
+    }
+
+    record IndexOutOfRange(String name, int index, int min, int max);
+
+    public static void Main()
+    {
+        try
+        {
+            throw new Err(new IndexOutOfRange(&quot;array&quot;, 11, 0, 10));
+        }
+        catch (Err e)
+        {
+            ...
+        }
+    }
+}
+</code></pre>
+<pre><code class="lang-bash">% MyApp --github.sttk.errs.notify=true
+Program.IndexOutOfRange { name = array, index = 11, min = 0, max = 10 } - Program.cs:27
+</code></pre>
+<p>Error notifications will not occur until the <code>Err.FixHandlers</code> static method is called.
+This static method locks the current set of error handlers, preventing further additions and enabling notification processing.</p>
+<h2 id="native-build">Native build</h2>
+<p>This library supports native build.</p>
+<h3 id="actually-test-results">Actually test results</h3>
+<pre><code class="lang-bash">% ./build.sh native-test
+Restore complete (1.4s)
+    Determining projects to restore...
+    All projects are up-to-date for restore.
+  Errs net10.0 succeeded (0.4s) → Errs/bin/Release/net10.0/Errs.dll
+  Errs.NativeTests net10.0 osx-x64 succeeded (25.7s) → Errs.NativeTests/bin/Release/net10.0/osx-x64/publish/
+    Generating native code
+
+Build succeeded in 28.0s
+xUnit.net v3 In-Process Runner v4.0.1+8ed8aa354c [native/osx-x64] (.NET 10.0.12)
+  Discovering: Errs.NativeTests
+  Discovered:  Errs.NativeTests
+  Starting:    Errs.NativeTests
+  Finished:    Errs.NativeTests (ID = 'd258c38db83912629e56c76208240907560d31a28042a0415e1e9e44b66c462b')
+=== TEST EXECUTION SUMMARY ===
+   Errs.NativeTests  Total: 18, Errors: 0, Failed: 0, Skipped: 0, Not Run: 0, Time: 0.002s
+</code></pre>
+<h2 id="license">License</h2>
+<p>Copyright (C) 2026 Takayuki Sato</p>
+<p>This program is free software under MIT License.<br>
+See the file LICENSE in this distribution for more details.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/sttk/errs-csharp/blob/0.1.0/README.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

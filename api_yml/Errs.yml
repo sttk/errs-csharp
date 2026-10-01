@@ -1,0 +1,45 @@
+### YamlMime:ManagedReference
+items:
+- uid: Errs
+  commentId: N:Errs
+  id: Errs
+  children:
+  - Errs.AsyncErrHandler
+  - Errs.Err
+  - Errs.SyncErrHandler
+  langs:
+  - csharp
+  - vb
+  name: Errs
+  nameWithType: Errs
+  fullName: Errs
+  type: Namespace
+  assemblies:
+  - Errs
+references:
+- uid: Errs.AsyncErrHandler
+  commentId: T:Errs.AsyncErrHandler
+  parent: Errs
+  href: Errs.AsyncErrHandler.html
+  name: AsyncErrHandler
+  nameWithType: AsyncErrHandler
+  fullName: Errs.AsyncErrHandler
+- uid: Errs.Err
+  commentId: T:Errs.Err
+  parent: Errs
+  href: Errs.Err.html
+  name: Err
+  nameWithType: Err
+  fullName: Errs.Err
+- uid: Errs.SyncErrHandler
+  commentId: T:Errs.SyncErrHandler
+  parent: Errs
+  href: Errs.SyncErrHandler.html
+  name: SyncErrHandler
+  nameWithType: SyncErrHandler
+  fullName: Errs.SyncErrHandler
+- uid: Errs
+  commentId: N:Errs
+  name: Errs
+  nameWithType: Errs
+  fullName: Errs

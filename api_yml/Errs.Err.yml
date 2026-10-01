@@ -1,0 +1,894 @@
+### YamlMime:ManagedReference
+items:
+- uid: Errs.Err
+  commentId: T:Errs.Err
+  id: Err
+  parent: Errs
+  children:
+  - Errs.Err.#ctor(System.Object,System.Exception,System.String,System.Int32)
+  - Errs.Err.AddAsyncHandler(Errs.AsyncErrHandler)
+  - Errs.Err.AddSyncHandler(Errs.SyncErrHandler)
+  - Errs.Err.File
+  - Errs.Err.FixHandlers
+  - Errs.Err.Line
+  - Errs.Err.Message
+  - Errs.Err.Reason
+  - Errs.Err.ToString
+  langs:
+  - csharp
+  - vb
+  name: Err
+  nameWithType: Err
+  fullName: Errs.Err
+  type: Class
+  source:
+    remote:
+      path: Errs/Err.cs
+      branch: 0.1.0
+      repo: https://github.com/sttk/errs-csharp
+    id: Err
+    path: Errs/Err.cs
+    startLine: 38
+  assemblies:
+  - Errs
+  namespace: Errs
+  summary: >-
+    Is the exception class with a reason.<br />
+
+    <br />
+
+    This class has a property which indicates a reason for this exception. Typically the type of
+
+    this property is a record class. In this case, the class name of this record represents
+
+    the reason, and the fields of the record hold the situation where the exception occurred.<br />
+
+    <br />
+
+    Optionally, this exception class can notify its instance creation to pre-registered exception
+
+    handlers. This notification feature can be enabled by specifying the command line argument
+
+    {@code --github.sttk.errs.notify=true} when an application using this library is started.<br />
+
+    <br />
+
+    <example>
+
+    The example code of creating and throwing an exception is as follows:
+
+
+    <pre><code class="lang-csharp">public record FailToDoSomething(String name, int value);
+
+
+    try
+
+    {
+        throw new Err(new FailToDoSomething("abc", 123));
+    }
+
+    catch (Err e)
+
+    {
+        Console.WriteLine(e.Message);
+    }</code></pre>
+
+
+    </example>
+  example: []
+  syntax:
+    content: 'public sealed class Err : Exception, ISerializable'
+    content.vb: Public NotInheritable Class Err Inherits Exception Implements ISerializable
+  inheritance:
+  - System.Object
+  - System.Exception
+  implements:
+  - System.Runtime.Serialization.ISerializable
+  inheritedMembers:
+  - System.Exception.GetBaseException
+  - System.Exception.GetType
+  - System.Exception.Data
+  - System.Exception.HelpLink
+  - System.Exception.HResult
+  - System.Exception.InnerException
+  - System.Exception.Source
+  - System.Exception.StackTrace
+  - System.Exception.TargetSite
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Errs.Err.Reason
+  commentId: P:Errs.Err.Reason
+  id: Reason
+  parent: Errs.Err
+  langs:
+  - csharp
+  - vb
+  name: Reason
+  nameWithType: Err.Reason
+  fullName: Errs.Err.Reason
+  type: Property
+  source:
+    remote:
+      path: Errs/Err.cs
+      branch: 0.1.0
+      repo: https://github.com/sttk/errs-csharp
+    id: Reason
+    path: Errs/Err.cs
+    startLine: 46
+  assemblies:
+  - Errs
+  namespace: Errs
+  summary: The reason for this exception.
+  example: []
+  syntax:
+    content: public object Reason { get; }
+    parameters: []
+    return:
+      type: System.Object
+      description: The reason for this exception.
+    content.vb: Public ReadOnly Property Reason As Object
+  overload: Errs.Err.Reason*
+- uid: Errs.Err.File
+  commentId: P:Errs.Err.File
+  id: File
+  parent: Errs.Err
+  langs:
+  - csharp
+  - vb
+  name: File
+  nameWithType: Err.File
+  fullName: Errs.Err.File
+  type: Property
+  source:
+    remote:
+      path: Errs/Err.cs
+      branch: 0.1.0
+      repo: https://github.com/sttk/errs-csharp
+    id: File
+    path: Errs/Err.cs
+    startLine: 54
+  assemblies:
+  - Errs
+  namespace: Errs
+  summary: The name of the source file of this exception occurrence.
+  example: []
+  syntax:
+    content: public string File { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: The name of the source file of this exception occurrence.
+    content.vb: Public ReadOnly Property File As String
+  overload: Errs.Err.File*
+- uid: Errs.Err.Line
+  commentId: P:Errs.Err.Line
+  id: Line
+  parent: Errs.Err
+  langs:
+  - csharp
+  - vb
+  name: Line
+  nameWithType: Err.Line
+  fullName: Errs.Err.Line
+  type: Property
+  source:
+    remote:
+      path: Errs/Err.cs
+      branch: 0.1.0
+      repo: https://github.com/sttk/errs-csharp
+    id: Line
+    path: Errs/Err.cs
+    startLine: 62
+  assemblies:
+  - Errs
+  namespace: Errs
+  summary: The line number of this exception occurrence in the source file.
+  example: []
+  syntax:
+    content: public int Line { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: The line number of this exception occurrence in the source file.
+    content.vb: Public ReadOnly Property Line As Integer
+  overload: Errs.Err.Line*
+- uid: Errs.Err.#ctor(System.Object,System.Exception,System.String,System.Int32)
+  commentId: M:Errs.Err.#ctor(System.Object,System.Exception,System.String,System.Int32)
+  id: '#ctor(System.Object,System.Exception,System.String,System.Int32)'
+  parent: Errs.Err
+  langs:
+  - csharp
+  - vb
+  name: Err(object, Exception?, string, int)
+  nameWithType: Err.Err(object, Exception?, string, int)
+  fullName: Errs.Err.Err(object, System.Exception?, string, int)
+  type: Constructor
+  source:
+    remote:
+      path: Errs/Err.cs
+      branch: 0.1.0
+      repo: https://github.com/sttk/errs-csharp
+    id: .ctor
+    path: Errs/Err.cs
+    startLine: 84
+  assemblies:
+  - Errs
+  namespace: Errs
+  summary: >-
+    Is the constructor which takes an object indicating the reason for this exception.
+
+    In addition, this constructor takes the inner exception indicating the cause for this
+
+    exception if any.
+  example: []
+  syntax:
+    content: public Err(object reason, Exception? innerException = null, string file = "", int line = 0)
+    parameters:
+    - id: reason
+      type: System.Object
+      description: >-
+        An object representing the reason for the exception. The type of this object identifies
+
+        the kind of error and may contain additional error details.
+    - id: innerException
+      type: System.Exception
+      description: The underlying exception that caused the error, if any.
+    - id: file
+      type: System.String
+      description: >-
+        The source file in which the error was created.
+
+        This parameter is automatically populated by the compiler.
+    - id: line
+      type: System.Int32
+      description: >-
+        The line number at which the error was created.
+
+        This parameter is automatically populated by the compiler.
+    content.vb: Public Sub New(reason As Object, innerException As Exception = Nothing, file As String = "", line As Integer = 0)
+  overload: Errs.Err.#ctor*
+  nameWithType.vb: Err.New(Object, Exception, String, Integer)
+  fullName.vb: Errs.Err.New(Object, System.Exception, String, Integer)
+  name.vb: New(Object, Exception, String, Integer)
+- uid: Errs.Err.Message
+  commentId: P:Errs.Err.Message
+  id: Message
+  parent: Errs.Err
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: Err.Message
+  fullName: Errs.Err.Message
+  type: Property
+  source:
+    remote:
+      path: Errs/Err.cs
+      branch: 0.1.0
+      repo: https://github.com/sttk/errs-csharp
+    id: Message
+    path: Errs/Err.cs
+    startLine: 101
+  assemblies:
+  - Errs
+  namespace: Errs
+  summary: Gets a message that describes the current exception.
+  example: []
+  syntax:
+    content: public override string Message { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: The error message that explains the reason for the exception, or an empty string ("").
+    content.vb: Public Overrides ReadOnly Property Message As String
+  overridden: System.Exception.Message
+  overload: Errs.Err.Message*
+- uid: Errs.Err.ToString
+  commentId: M:Errs.Err.ToString
+  id: ToString
+  parent: Errs.Err
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Err.ToString()
+  fullName: Errs.Err.ToString()
+  type: Method
+  source:
+    remote:
+      path: Errs/Err.cs
+      branch: 0.1.0
+      repo: https://github.com/sttk/errs-csharp
+    id: ToString
+    path: Errs/Err.cs
+    startLine: 104
+  assemblies:
+  - Errs
+  namespace: Errs
+  summary: Creates and returns a string representation of the current exception.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string representation of the current exception.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Exception.ToString
+  overload: Errs.Err.ToString*
+- uid: Errs.Err.AddSyncHandler(Errs.SyncErrHandler)
+  commentId: M:Errs.Err.AddSyncHandler(Errs.SyncErrHandler)
+  id: AddSyncHandler(Errs.SyncErrHandler)
+  parent: Errs.Err
+  langs:
+  - csharp
+  - vb
+  name: AddSyncHandler(SyncErrHandler)
+  nameWithType: Err.AddSyncHandler(SyncErrHandler)
+  fullName: Errs.Err.AddSyncHandler(Errs.SyncErrHandler)
+  type: Method
+  source:
+    remote:
+      path: Errs/Err.cs
+      branch: 0.1.0
+      repo: https://github.com/sttk/errs-csharp
+    id: AddSyncHandler
+    path: Errs/Err.cs
+    startLine: 156
+  assemblies:
+  - Errs
+  namespace: Errs
+  summary: >-
+    Adds an <xref href="Errs.SyncErrHandler" data-throw-if-not-resolved="false"></xref> object which is executed synchronously just after an
+
+    <xref href="Errs.Err" data-throw-if-not-resolved="false"></xref> is created. Handlers added with this method are executed in the order
+
+    of addition and stop if one of the handlers throws an exception.
+
+    NOTE: This feature is enabled via the command line argument:
+
+    <code>--github.sttk.errs.notify=true</code>
+  example: []
+  syntax:
+    content: public static void AddSyncHandler(SyncErrHandler handler)
+    parameters:
+    - id: handler
+      type: Errs.SyncErrHandler
+      description: An <xref href="Errs.SyncErrHandler" data-throw-if-not-resolved="false"></xref> object.
+    content.vb: Public Shared Sub AddSyncHandler(handler As SyncErrHandler)
+  overload: Errs.Err.AddSyncHandler*
+- uid: Errs.Err.AddAsyncHandler(Errs.AsyncErrHandler)
+  commentId: M:Errs.Err.AddAsyncHandler(Errs.AsyncErrHandler)
+  id: AddAsyncHandler(Errs.AsyncErrHandler)
+  parent: Errs.Err
+  langs:
+  - csharp
+  - vb
+  name: AddAsyncHandler(AsyncErrHandler)
+  nameWithType: Err.AddAsyncHandler(AsyncErrHandler)
+  fullName: Errs.Err.AddAsyncHandler(Errs.AsyncErrHandler)
+  type: Method
+  source:
+    remote:
+      path: Errs/Err.cs
+      branch: 0.1.0
+      repo: https://github.com/sttk/errs-csharp
+    id: AddAsyncHandler
+    path: Errs/Err.cs
+    startLine: 175
+  assemblies:
+  - Errs
+  namespace: Errs
+  summary: >-
+    Adds an <xref href="Errs.AsyncErrHandler" data-throw-if-not-resolved="false"></xref> object which is executed asynchronously just after
+
+    an <xref href="Errs.Err" data-throw-if-not-resolved="false"></xref> is created. Handlers don't stop even if one of the handlers throw an
+
+    exception.
+
+    NOTE: This feature is enabled via the command line argument:
+
+    <code>--github.sttk.errs.notify=true</code>
+  example: []
+  syntax:
+    content: public static void AddAsyncHandler(AsyncErrHandler handler)
+    parameters:
+    - id: handler
+      type: Errs.AsyncErrHandler
+      description: An <xref href="Errs.AsyncErrHandler" data-throw-if-not-resolved="false"></xref> object.
+    content.vb: Public Shared Sub AddAsyncHandler(handler As AsyncErrHandler)
+  overload: Errs.Err.AddAsyncHandler*
+- uid: Errs.Err.FixHandlers
+  commentId: M:Errs.Err.FixHandlers
+  id: FixHandlers
+  parent: Errs.Err
+  langs:
+  - csharp
+  - vb
+  name: FixHandlers()
+  nameWithType: Err.FixHandlers()
+  fullName: Errs.Err.FixHandlers()
+  type: Method
+  source:
+    remote:
+      path: Errs/Err.cs
+      branch: 0.1.0
+      repo: https://github.com/sttk/errs-csharp
+    id: FixHandlers
+    path: Errs/Err.cs
+    startLine: 192
+  assemblies:
+  - Errs
+  namespace: Errs
+  summary: >-
+    Prevents further addition of error handler object to synchronous and asynchronous exception
+
+    handler lists. Before this is called, no <xref href="Errs.Err" data-throw-if-not-resolved="false"></xref> is notified to the handlers.
+
+    After this is called, no new handlers can be added, and <xref href="Errs.Err" data-throw-if-not-resolved="false"></xref> is notified to
+
+    the handlers.
+
+    NOTE: This feature is enabled via the command line argument:
+
+    <code>--github.sttk.errs.notify=true</code>
+  example: []
+  syntax:
+    content: public static void FixHandlers()
+    content.vb: Public Shared Sub FixHandlers()
+  overload: Errs.Err.FixHandlers*
+references:
+- uid: Errs
+  commentId: N:Errs
+  name: Errs
+  nameWithType: Errs
+  fullName: Errs
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.iserializable
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
+- uid: System.Exception.GetBaseException
+  commentId: M:System.Exception.GetBaseException
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.getbaseexception
+  name: GetBaseException()
+  nameWithType: Exception.GetBaseException()
+  fullName: System.Exception.GetBaseException()
+  spec.csharp:
+  - uid: System.Exception.GetBaseException
+    name: GetBaseException
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.getbaseexception
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Exception.GetBaseException
+    name: GetBaseException
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.getbaseexception
+  - name: (
+  - name: )
+- uid: System.Exception.GetType
+  commentId: M:System.Exception.GetType
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.gettype
+  name: GetType()
+  nameWithType: Exception.GetType()
+  fullName: System.Exception.GetType()
+  spec.csharp:
+  - uid: System.Exception.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Exception.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.gettype
+  - name: (
+  - name: )
+- uid: System.Exception.Data
+  commentId: P:System.Exception.Data
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.data
+  name: Data
+  nameWithType: Exception.Data
+  fullName: System.Exception.Data
+- uid: System.Exception.HelpLink
+  commentId: P:System.Exception.HelpLink
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.helplink
+  name: HelpLink
+  nameWithType: Exception.HelpLink
+  fullName: System.Exception.HelpLink
+- uid: System.Exception.HResult
+  commentId: P:System.Exception.HResult
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.hresult
+  name: HResult
+  nameWithType: Exception.HResult
+  fullName: System.Exception.HResult
+- uid: System.Exception.InnerException
+  commentId: P:System.Exception.InnerException
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.innerexception
+  name: InnerException
+  nameWithType: Exception.InnerException
+  fullName: System.Exception.InnerException
+- uid: System.Exception.Source
+  commentId: P:System.Exception.Source
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.source
+  name: Source
+  nameWithType: Exception.Source
+  fullName: System.Exception.Source
+- uid: System.Exception.StackTrace
+  commentId: P:System.Exception.StackTrace
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.stacktrace
+  name: StackTrace
+  nameWithType: Exception.StackTrace
+  fullName: System.Exception.StackTrace
+- uid: System.Exception.TargetSite
+  commentId: P:System.Exception.TargetSite
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.targetsite
+  name: TargetSite
+  nameWithType: Exception.TargetSite
+  fullName: System.Exception.TargetSite
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
+- uid: Errs.Err.Reason*
+  commentId: Overload:Errs.Err.Reason
+  href: Errs.Err.html#Errs_Err_Reason
+  name: Reason
+  nameWithType: Err.Reason
+  fullName: Errs.Err.Reason
+- uid: Errs.Err.File*
+  commentId: Overload:Errs.Err.File
+  href: Errs.Err.html#Errs_Err_File
+  name: File
+  nameWithType: Err.File
+  fullName: Errs.Err.File
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Errs.Err.Line*
+  commentId: Overload:Errs.Err.Line
+  href: Errs.Err.html#Errs_Err_Line
+  name: Line
+  nameWithType: Err.Line
+  fullName: Errs.Err.Line
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Errs.Err.#ctor*
+  commentId: Overload:Errs.Err.#ctor
+  href: Errs.Err.html#Errs_Err__ctor_System_Object_System_Exception_System_String_System_Int32_
+  name: Err
+  nameWithType: Err.Err
+  fullName: Errs.Err.Err
+  nameWithType.vb: Err.New
+  fullName.vb: Errs.Err.New
+  name.vb: New
+- uid: System.Exception.Message
+  commentId: P:System.Exception.Message
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.message
+  name: Message
+  nameWithType: Exception.Message
+  fullName: System.Exception.Message
+- uid: Errs.Err.Message*
+  commentId: Overload:Errs.Err.Message
+  href: Errs.Err.html#Errs_Err_Message
+  name: Message
+  nameWithType: Err.Message
+  fullName: Errs.Err.Message
+- uid: System.Exception.ToString
+  commentId: M:System.Exception.ToString
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  name: ToString()
+  nameWithType: Exception.ToString()
+  fullName: System.Exception.ToString()
+  spec.csharp:
+  - uid: System.Exception.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Exception.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  - name: (
+  - name: )
+- uid: Errs.Err.ToString*
+  commentId: Overload:Errs.Err.ToString
+  href: Errs.Err.html#Errs_Err_ToString
+  name: ToString
+  nameWithType: Err.ToString
+  fullName: Errs.Err.ToString
+- uid: Errs.SyncErrHandler
+  commentId: T:Errs.SyncErrHandler
+  parent: Errs
+  href: Errs.SyncErrHandler.html
+  name: SyncErrHandler
+  nameWithType: SyncErrHandler
+  fullName: Errs.SyncErrHandler
+- uid: Errs.Err
+  commentId: T:Errs.Err
+  parent: Errs
+  href: Errs.Err.html
+  name: Err
+  nameWithType: Err
+  fullName: Errs.Err
+- uid: Errs.Err.AddSyncHandler*
+  commentId: Overload:Errs.Err.AddSyncHandler
+  href: Errs.Err.html#Errs_Err_AddSyncHandler_Errs_SyncErrHandler_
+  name: AddSyncHandler
+  nameWithType: Err.AddSyncHandler
+  fullName: Errs.Err.AddSyncHandler
+- uid: Errs.AsyncErrHandler
+  commentId: T:Errs.AsyncErrHandler
+  parent: Errs
+  href: Errs.AsyncErrHandler.html
+  name: AsyncErrHandler
+  nameWithType: AsyncErrHandler
+  fullName: Errs.AsyncErrHandler
+- uid: Errs.Err.AddAsyncHandler*
+  commentId: Overload:Errs.Err.AddAsyncHandler
+  href: Errs.Err.html#Errs_Err_AddAsyncHandler_Errs_AsyncErrHandler_
+  name: AddAsyncHandler
+  nameWithType: Err.AddAsyncHandler
+  fullName: Errs.Err.AddAsyncHandler
+- uid: Errs.Err.FixHandlers*
+  commentId: Overload:Errs.Err.FixHandlers
+  href: Errs.Err.html#Errs_Err_FixHandlers
+  name: FixHandlers
+  nameWithType: Err.FixHandlers
+  fullName: Errs.Err.FixHandlers

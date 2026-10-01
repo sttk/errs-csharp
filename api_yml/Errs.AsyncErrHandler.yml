@@ -1,0 +1,113 @@
+### YamlMime:ManagedReference
+items:
+- uid: Errs.AsyncErrHandler
+  commentId: T:Errs.AsyncErrHandler
+  id: AsyncErrHandler
+  parent: Errs
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: AsyncErrHandler
+  nameWithType: AsyncErrHandler
+  fullName: Errs.AsyncErrHandler
+  type: Delegate
+  source:
+    remote:
+      path: Errs/AsyncErrHandler.cs
+      branch: 0.1.0
+      repo: https://github.com/sttk/errs-csharp
+    id: AsyncErrHandler
+    path: Errs/AsyncErrHandler.cs
+    startLine: 15
+  assemblies:
+  - Errs
+  namespace: Errs
+  summary: Is a handler that asynchronously handles an <xref href="Errs.Err" data-throw-if-not-resolved="false"></xref> object when it is created.
+  example: []
+  syntax:
+    content: public delegate Task AsyncErrHandler(Err err, DateTimeOffset tm)
+    parameters:
+    - id: err
+      type: Errs.Err
+      description: The <xref href="Errs.Err" data-throw-if-not-resolved="false"></xref> object to handle.
+    - id: tm
+      type: System.DateTimeOffset
+      description: The creation time when the <xref href="Errs.Err" data-throw-if-not-resolved="false"></xref> object occurred.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task that represents the asynchronous handling operation.
+    content.vb: Public Delegate Function AsyncErrHandler(err As Err, tm As DateTimeOffset) As Task
+references:
+- uid: Errs.Err
+  commentId: T:Errs.Err
+  parent: Errs
+  href: Errs.Err.html
+  name: Err
+  nameWithType: Err
+  fullName: Errs.Err
+- uid: Errs
+  commentId: N:Errs
+  name: Errs
+  nameWithType: Errs
+  fullName: Errs
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetimeoffset
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

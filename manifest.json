@@ -1,0 +1,101 @@
+{
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
+  "source_base_path": "/home/runner/work/errs-csharp/errs-csharp",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Errs.Benchmarks/benchmark.md",
+      "output": {
+        ".html": {
+          "relative_path": "Errs.Benchmarks/benchmark.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "_site/api_yml/Errs.AsyncErrHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Errs.AsyncErrHandler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Errs.AsyncErrHandler",
+      "Summary": "<p sourcefile=\"_site/api_yml/Errs.AsyncErrHandler.yml\" sourcestartlinenumber=\"1\">Is a handler that asynchronously handles an <xref href=\"Errs.Err\" data-throw-if-not-resolved=\"false\"></xref> object when it is created.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "_site/api_yml/Errs.Err.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Errs.Err.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Errs.Err",
+      "Summary": "<p sourcefile=\"_site/api_yml/Errs.Err.yml\" sourcestartlinenumber=\"1\">Is the exception class with a reason.<br>\n<br>\nThis class has a property which indicates a reason for this exception. Typically the type of\nthis property is a record class. In this case, the class name of this record represents\nthe reason, and the fields of the record hold the situation where the exception occurred.<br>\n<br>\nOptionally, this exception class can notify its instance creation to pre-registered exception\nhandlers. This notification feature can be enabled by specifying the command line argument\n{<xref href=\"code\" data-throw-if-not-resolved=\"False\" data-raw-source=\"@code\" sourcefile=\"_site/api_yml/Errs.Err.yml\" sourcestartlinenumber=\"9\"></xref> --github.sttk.errs.notify=true} when an application using this library is started.<br>\n<br>\n<example>\nThe example code of creating and throwing an exception is as follows:</example></p>\n<pre><code class=\"lang-csharp\">public record FailToDoSomething(String name, int value);\n\ntry\n{\n    throw new Err(new FailToDoSomething(\"abc\", 123));\n}\ncatch (Err e)\n{\n    Console.WriteLine(e.Message);\n}</code></pre>\n\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "_site/api_yml/Errs.SyncErrHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Errs.SyncErrHandler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Errs.SyncErrHandler",
+      "Summary": "<p sourcefile=\"_site/api_yml/Errs.SyncErrHandler.yml\" sourcestartlinenumber=\"1\">Is a handler that synchronously handles an <xref href=\"Errs.Err\" data-throw-if-not-resolved=\"false\"></xref> object when it is created.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "_site/api_yml/Errs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Errs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Errs",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "_site/api_yml/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

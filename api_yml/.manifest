@@ -1,0 +1,15 @@
+{
+  "Errs": "Errs.yml",
+  "Errs.AsyncErrHandler": "Errs.AsyncErrHandler.yml",
+  "Errs.Err": "Errs.Err.yml",
+  "Errs.Err.#ctor(System.Object,System.Exception,System.String,System.Int32)": "Errs.Err.yml",
+  "Errs.Err.AddAsyncHandler(Errs.AsyncErrHandler)": "Errs.Err.yml",
+  "Errs.Err.AddSyncHandler(Errs.SyncErrHandler)": "Errs.Err.yml",
+  "Errs.Err.File": "Errs.Err.yml",
+  "Errs.Err.FixHandlers": "Errs.Err.yml",
+  "Errs.Err.Line": "Errs.Err.yml",
+  "Errs.Err.Message": "Errs.Err.yml",
+  "Errs.Err.Reason": "Errs.Err.yml",
+  "Errs.Err.ToString": "Errs.Err.yml",
+  "Errs.SyncErrHandler": "Errs.SyncErrHandler.yml"
+}

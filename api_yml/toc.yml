@@ -1,0 +1,16 @@
+### YamlMime:TableOfContent
+items:
+- uid: Errs
+  name: Errs
+  type: Namespace
+  items:
+  - uid: Errs.AsyncErrHandler
+    name: AsyncErrHandler
+    type: Delegate
+  - uid: Errs.Err
+    name: Err
+    type: Class
+  - uid: Errs.SyncErrHandler
+    name: SyncErrHandler
+    type: Delegate
+memberLayout: SamePage

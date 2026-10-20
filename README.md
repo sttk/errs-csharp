@@ -137,12 +137,12 @@ public class Program
         Err.AddSyncHandler((err, tm) =>
         {
           Console.WriteLine(string.Format("{0} - {1}:{2}",
-            err.Message, err.File, err.Line);
+            err.Message, err.File, err.Line));
         });
 
         Err.AddAsyncHandler((err, tm) =>
         {
-          remoteLogger.Log(string.format("{0}:{1}:{2}:{3}",
+          remoteLogger.Log(string.Format("{0}:{1}:{2}:{3}",
               tm.ToString("yyyy-MM-dd'T'HH:mm:sszzz"), err.File, err.Line, err.ToString()));
         });
 
